@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tafseer_hafiz_abdusalam/AyatDetail.dart';
 import 'package:tafseer_hafiz_abdusalam/QuranData/QuranInfo.dart';
 import 'package:tafseer_hafiz_abdusalam/Search.dart';
+import 'package:tafseer_hafiz_abdusalam/ui/pages/home.dart';
 
 import 'Database/DatabaseManager.dart';
 
@@ -16,7 +17,7 @@ void main() => runApp(
           child: child,
         );
       },
-      home: Dashboard(),
+      home: HomePage(),
     )
 );
 

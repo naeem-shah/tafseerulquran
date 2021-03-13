@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.naeem.tafseer_hafiz_abdusalam"
+    package="com.syedzada.tafsirhafizabdulsalambhutvi"
     android:versionCode="10.12"
     android:versionName="10.12">
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
