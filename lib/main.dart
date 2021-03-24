@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tafseer_hafiz_abdusalam/AyatDetail.dart';
 import 'package:tafseer_hafiz_abdusalam/QuranData/QuranInfo.dart';
 import 'package:tafseer_hafiz_abdusalam/Search.dart';
@@ -7,16 +8,29 @@ import 'package:tafseer_hafiz_abdusalam/ui/pages/home.dart';
 import 'Database/DatabaseManager.dart';
 
 void main() => runApp(
-    MaterialApp(
+    GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        accentColor: const Color(0xff9E8D3F),
+        primarySwatch: MaterialColor(0xFF40519F, {
+          50:Color.fromRGBO(64,81,159, .1),
+          100:Color.fromRGBO(64,81,159, .2),
+          200:Color.fromRGBO(64,81,159, .3),
+          300:Color.fromRGBO(64,81,159, .4),
+          400:Color.fromRGBO(64,81,159, .5),
+          500:Color.fromRGBO(64,81,159, .6),
+          600:Color.fromRGBO(64,81,159, .7),
+          700:Color.fromRGBO(64,81,159, .8),
+          800:Color.fromRGBO(64,81,159, .9),
+          900:Color.fromRGBO(64,81,159, 1),
+        }),
       ),
-      builder: (context, child) {
-        return Directionality(
-          textDirection: TextDirection.rtl,
-          child: child,
-        );
-      },
+      // builder: (context, child) {
+      //   return Directionality(
+      //     // textDirection: TextDirection.rtl,
+      //     child: child,
+      //   );
+      // },
       home: HomePage(),
     )
 );
@@ -115,9 +129,9 @@ class _DashboardState extends State<Dashboard> {
           borderRadius: BorderRadius.circular(4),
           onTap: () {
             FocusScope.of(context).requestFocus(FocusNode());
-            Route route = MaterialPageRoute(builder: (context) =>
-                AyatDetailViewPager(position: info.id, title: info.urduName,));
-            Navigator.push(context, route);
+            // Route route = MaterialPageRoute(builder: (context) =>
+            //     AyatDetailViewPager(position: info.id, title: info.urduName,));
+            // Navigator.push(context, route);
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),

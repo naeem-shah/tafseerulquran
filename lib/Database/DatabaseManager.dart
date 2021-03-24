@@ -4,20 +4,21 @@ import 'package:path/path.dart';
 import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:tafseer_hafiz_abdusalam/Constants/Constants.dart';
-import 'package:tafseer_hafiz_abdusalam/Models/AyatModel.dart';
+import 'package:tafseer_hafiz_abdusalam/models/index_model.dart';
+import 'package:tafseer_hafiz_abdusalam/assets/constants.dart';
+import 'package:tafseer_hafiz_abdusalam/models/ayat_model.dart';
 
 class DbManager {
-  static DbManager _databaseManger;
+  static DbManager _db;
   static Database _database;
 
   DbManager._createInstance();
 
   factory DbManager() {
-    if (_databaseManger == null) {
-      _databaseManger = DbManager._createInstance();
+    if (_db == null) {
+      _db = DbManager._createInstance();
     }
-    return _databaseManger;
+    return _db;
   }
 
   Future<Database> get database async {
@@ -30,7 +31,7 @@ class DbManager {
   Future<Database> initializeDatabase() async {
 
     var databasesPath = await getDatabasesPath();
-    var path = join(databasesPath, Constants.DB_NAME);
+    var path = join(databasesPath, Constants.db);
 
     // Check if the database exists
     var exists = await databaseExists(path);
@@ -51,29 +52,37 @@ class DbManager {
       // Write and flush the bytes written
       await File(path).writeAsBytes(bytes, flush: true);
 
-    } else {
-      print("Opening existing database");
     }
 
     return await openDatabase(path);
   }
 
-  Future<List<Map<String, dynamic>>> getMapList(String column, int position) async {
+  Future<List<IndexModel>> getIndexes(String table) async {
     Database db = await this.database;
-    
-    return await db.query(Constants.DATA, where: '$column = ?', whereArgs: [position]);
+    var mapList = await db.query(table);
+
+
+    List<IndexModel> list = [];
+
+    for (var obj in mapList){
+      list.add(IndexModel.fromMapObject(obj));
+
+    }
+    return list;
+
   }
 
-  Future<List<AyatModel>> getSurah(String column, int position) async {
-    var mapList = await getMapList(column, position);
-    int count = mapList.length;
+  Future<List<AyatModel>> getAyatList(String where, int equal) async {
+    Database db = await this.database;
+    var mapList = await db.query(Constants.ayatTable,where: "$where = ?",whereArgs: [equal]);
 
-    List<AyatModel> list = new List<AyatModel>();
-    
-    for(int i = 0; i<count; i++){
-      list.add(AyatModel.fromMapObject(mapList[i]));
+
+    List<AyatModel> list = [];
+
+    for (var obj in mapList){
+      list.add(AyatModel.fromMapObject(obj));
+
     }
-
     return list;
 
   }
