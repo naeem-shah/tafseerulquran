@@ -87,5 +87,12 @@ class DbManager {
 
   }
 
+  Future<void> updateAyat(AyatModel ayatModel) async {
+    Database db = await this.database;
+
+    await db.update(Constants.ayatTable, ayatModel.toMap(),where: "${Constants.id} = ?",whereArgs: [ayatModel.id]);
+
+  }
+
 
 }

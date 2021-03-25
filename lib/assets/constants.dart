@@ -22,6 +22,9 @@ class Constants{
   static const String ayatNo = "AyatNo";
   static const String isBookmark = "isBookmark";
 
+  static const String auzubillah = "أَعـوذُ بِاللهِ مِنَ الشَّيْـطانِ الرَّجيـم";
+  static const String bismillah = "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ";
+
 
 
 

@@ -17,6 +17,9 @@ dependencies:
   path_provider: 1.6.1
   sqflite: ^1.2.1
   get: ^3.26.0
+  flutter_parsed_text: ^1.2.5
+  clipboard: ^0.1.2+8
+  share: ^0.6.5+4
 
 dev_dependencies:
   flutter_test:
@@ -33,7 +36,9 @@ flutter:
     - family: Jameel
       fonts:
         - asset: assets/fonts/jameel.ttf
-
     - family: NooreHuda
       fonts:
         - asset: assets/fonts/noorehuda.ttf
+    - family: Trad
+      fonts:
+        - asset: assets/fonts/trad.ttf

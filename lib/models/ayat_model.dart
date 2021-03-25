@@ -44,7 +44,7 @@ class AyatModel{
     this.ayat = map[Constants.arabic];
     this.ayatClean = map[Constants.arabicClean];
     this.translation = map[Constants.translation];
-    this.tafsir = map[Constants.tafsir];
+    this.tafsir = map[Constants.tafsir] ??"";
     this.surahId = map[Constants.surahId];
     this.juzId = map[Constants.juzId];
     this.ayatNo = map[Constants.ayatNo];
