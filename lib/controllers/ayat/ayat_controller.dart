@@ -1,6 +1,7 @@
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:share/share.dart';
 import 'package:tafseer_hafiz_abdusalam/Database/DatabaseManager.dart';
 import 'package:tafseer_hafiz_abdusalam/assets/constants.dart';
@@ -11,18 +12,28 @@ import 'package:tafseer_hafiz_abdusalam/models/index_model.dart';
 class AyatController extends GetxController{
 
   bool isSurah = true;
-  var visibleIndex = 0.obs;
+  int visibleIndex = 0;
   var _ayat = [].obs;
   var _indexes = [].obs;
+  var _translationVisible = true.obs, _tafsirVisible = true.obs;
   var _selectedIndex = IndexModel().obs;
+  final ItemScrollController scrollController = ItemScrollController();
 
   List<IndexModel> get indexes => List<IndexModel>.from(_indexes);
 
   List<AyatModel> get ayatList => List<AyatModel>.from(_ayat);
 
+  bool get translationVisible => _translationVisible.value;
 
-  void onIndexChange(IndexModel indexModel) {
-    _selectedIndex(indexModel);
+  bool get tafsirVisible => _tafsirVisible.value;
+
+  void setTranslationVisibility (bool value) => _translationVisible(value);
+
+  void setTafsirVisibility (bool value) => _tafsirVisible(value);
+
+  void onIndexChange(int index) {
+    visibleIndex = 0;
+    _selectedIndex(indexes[index]);
     _ayat.clear();
     getAyatList();
   }
@@ -33,7 +44,6 @@ class AyatController extends GetxController{
     }
     return null;
   }
-
 
   @override
   void onInit() {
@@ -70,7 +80,6 @@ class AyatController extends GetxController{
     DbManager().updateAyat(ayatModel);
   }
 
-
   void onCopyPressed(AyatModel ayatModel) {
     String text = _textMaker(ayatModel);
     FlutterClipboard.copy(text);
@@ -82,7 +91,6 @@ class AyatController extends GetxController{
 
     Share.share(text);
   }
-
 
   String _textMaker(AyatModel ayatModel){
 
@@ -101,4 +109,5 @@ class AyatController extends GetxController{
 
     return text;
   }
+
 }
