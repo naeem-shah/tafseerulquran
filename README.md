@@ -1,4 +1,5 @@
-# tafseer_hafiz_abdusalam
+# Tafseer ul Quran
+
 
 Hafiz Abd ul Salam tafseer
 
