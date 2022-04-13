@@ -29,7 +29,8 @@ dependencies:
   enum_to_string: ^2.0.1
   wakelock: ^0.6.1+2
   download_assets: ^3.0.0
-
+  font_awesome_flutter: ^10.1.0
+  url_launcher: ^6.0.20
 
 
 dev_dependencies:

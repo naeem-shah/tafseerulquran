@@ -10,18 +10,10 @@
             <action android:name="android.intent.action.VIEW" />
             <data android:scheme="https" />
         </intent>
-        <intent>
-            <action android:name="android.intent.action.DIAL" />
-            <data android:scheme="tel" />
-        </intent>
-        <intent>
-            <action android:name="android.intent.action.SEND" />
-            <data android:mimeType="*/*" />
-        </intent>
     </queries>
 
    <application
-        android:label="tafseerulquran"
+        android:label="Tafseer ul quran"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

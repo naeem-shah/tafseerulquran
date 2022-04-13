@@ -1,14 +1,21 @@
 import 'dart:ui';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' as date_format;
+import 'package:tafseer/app/assets/custom_fonts.dart';
 import 'package:tafseer/app/controllers/home_quran_controller.dart';
+import 'package:tafseer/app/controllers/index/index_controller.dart';
+import 'package:tafseer/app/controllers/index/index_data_controller.dart';
 import 'package:tafseer/app/routes/app_routes.dart';
 import 'package:tafseer/app/services/preferences.dart';
 import 'package:tafseer/app/ui/widgets/custom_grid_tile.dart';
 import 'package:tafseer/app/ui/widgets/settings_bottom_sheet.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../assets/constants.dart';
+import 'app_drawer.dart';
 
 class HomeQuran extends StatelessWidget {
   const HomeQuran({Key? key}) : super(key: key);
@@ -21,8 +28,46 @@ class HomeQuran extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 12,
+            ),
+            child: ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey.shade200,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                    12,
+                  ),
+                ),
+              ),
+              onPressed: () {
+                launch(
+                  Constants.officialChannel,
+                );
+              },
+              icon: const FaIcon(
+                FontAwesomeIcons.youtube,
+                color: Colors.red,
+                size: 18,
+              ),
+              label: Text(
+                "YouTube",
+                style: Get.textTheme.bodyText1?.copyWith(
+                  color: Colors.red,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            width: 12,
+          ),
+        ],
       ),
       extendBodyBehindAppBar: true,
+      backgroundColor: Colors.grey.shade200,
       body: SizedBox(
         width: Get.width,
         height: Get.height,
@@ -41,25 +86,31 @@ class HomeQuran extends StatelessWidget {
                   ClipRRect(
                     child: BackdropFilter(
                       filter: ImageFilter.blur(
-                        sigmaX: 2,
-                        sigmaY: 2,
+                        sigmaX: 3,
+                        sigmaY: 3,
                       ),
                       child: Container(
-                        color: Colors.black.withOpacity(0.2),
+                        color: Colors.black.withOpacity(0.5),
+                        padding: const EdgeInsets.only(
+                          top: 30,
+                        ),
                         alignment: Alignment.center,
                         child: Directionality(
                           textDirection: TextDirection.ltr,
                           child: ListTile(
                             title: Text(
                               "${controller.hijri.hDay} ${controller.hijri.longMonthName}",
-                              style: Get.textTheme.subtitle1
-                                  ?.copyWith(color: Colors.white),
+                              style: Get.textTheme.headlineSmall?.copyWith(
+                                color: Colors.white,
+                              ),
                             ),
                             subtitle: Text(
-                              date_format.DateFormat("EEEE, dd-MMM-yy")
-                                  .format(controller.dateNow),
-                              style: Get.textTheme.subtitle1
-                                  ?.copyWith(color: Colors.white),
+                              date_format.DateFormat("EEEE, dd-MMM-yy").format(
+                                controller.dateNow,
+                              ),
+                              style: Get.textTheme.titleSmall?.copyWith(
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
@@ -77,6 +128,7 @@ class HomeQuran extends StatelessWidget {
                 textDirection: TextDirection.ltr,
                 child: GestureDetector(
                   onTap: () {
+                    // toolbarHeight: 0,
                     Get.toNamed(AppRoutes.search);
                   },
                   child: TextFormField(
@@ -107,6 +159,8 @@ class HomeQuran extends StatelessWidget {
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
                 childAspectRatio: 2 / 1.5,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 children: [
                   CustomGridTile(
@@ -119,7 +173,7 @@ class HomeQuran extends StatelessWidget {
                     title: "Read Quran",
                     onTap: () {
                       final bool hasDownloaded = Get.find<Preferences>()
-                              .getBool(key: Constants.hasDownloaded) ??
+                          .getBool(key: Constants.hasDownloaded) ??
                           false;
                       if (hasDownloaded) {
                         Get.toNamed(AppRoutes.indexesSimple);
@@ -147,7 +201,8 @@ class HomeQuran extends StatelessWidget {
                     imagePath: "assets/images/settings.png",
                     title: "Settings",
                     size: 40,
-                    onTap: () => Get.bottomSheet(const SettingsBottomSheet()),
+                    onTap: () =>
+                        Get.bottomSheet(const SettingsBottomSheet()),
                   ),
                   CustomGridTile(
                     imagePath: "assets/images/bookmark.png",

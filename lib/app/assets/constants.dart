@@ -27,6 +27,14 @@ class Constants {
   static const String explanationVisibility = "explanation_visibility";
   static const String hasDownloaded = "has_downloaded";
   static const String quranDownloadLink = "https://www.googleapis.com/drive/v3/files/1a9KjgSFJ2dyZyGjLeXcvyx72RVNo0Yif?alt=media&key=AIzaSyA1vfnB4ZAhyj-_2D6gwhR7-aa1OOPa47k";
+  static const String officialChannel = "https://www.youtube.com/c/HafizAbdusSalamBinMuhammadBhutvi";
+  static const String tarjumaChannel = "https://www.youtube.com/channel/UCMYlS8dVFUH9t67h-NaBzXQ";
+  static const String facebookPage = "https://www.facebook.com/BhutviOfficial";
+  static const String whatsappGroup = "https://chat.whatsapp.com/J69JEeNXzxX5RN63bQUrZb";
+  static const String soundCloud = "https://soundcloud.com/al-quran-ul-kareem";
+  static const String twitterOfficial = "https://twitter.com/BhutviOfficial";
+  static const String twitterTarjuma = "https://twitter.com/AlQuranulKarem";
+  static const String telegram = "https://t.me/TrajuamBhutvi";
 
 
   static const recentSurahId = "recent_surah_id";

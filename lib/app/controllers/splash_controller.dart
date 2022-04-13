@@ -6,8 +6,11 @@ class SplashController extends GetxController {
   void onInit() {
     super.onInit();
 
-    Future.delayed(const Duration(seconds: 2), () {
-      Get.offNamed(AppRoutes.quranHome);
-    });
+    Future.delayed(
+      const Duration(seconds: 2),
+      () {
+        Get.offNamed(AppRoutes.home);
+      },
+    );
   }
 }

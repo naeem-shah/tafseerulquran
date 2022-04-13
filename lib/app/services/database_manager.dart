@@ -55,6 +55,18 @@ class DatabaseManager extends GetxService {
     return mapList.map((e) => AyatModel.fromMapObject(e)).toList();
   }
 
+  Future<AyatModel> dailyAyah() async {
+    final mapList = await _database.rawQuery(
+        "SELECT * FROM ${Constants.ayatTable} ORDER BY RANDOM() LIMIT 1");
+
+    return mapList
+        .map(
+          (e) => AyatModel.fromMapObject(e),
+        )
+        .toList()
+        .first;
+  }
+
   Future<List<AyatModel>> getBookmarks() async {
     final mapList = await _database.query(
       Constants.ayatTable,

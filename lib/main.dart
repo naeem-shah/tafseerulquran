@@ -15,6 +15,8 @@ void main() async {
       theme: customAppTheme,
       getPages: pages,
       initialRoute: AppRoutes.splash,
+      transitionDuration: const Duration(milliseconds: 300),
+      defaultTransition: Transition.rightToLeft,
     ),
   );
 }

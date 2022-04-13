@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:hijri/hijri_calendar.dart';
 import 'package:tafseer/app/assets/constants.dart';
 import 'package:tafseer/app/controllers/index/index_data_controller.dart';
 import 'package:tafseer/app/controllers/reading/quran_download_controller.dart';
@@ -41,5 +42,6 @@ class Services {
         permanent: true,
       );
     }
+
   }
 }

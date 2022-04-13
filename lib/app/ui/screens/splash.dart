@@ -15,9 +15,12 @@ class Splash extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Hero(
-              tag: "logo",
-              child: Image.asset("assets/images/logo.png"),
+            AspectRatio(
+              aspectRatio: 1/1,
+              child: Hero(
+                tag: "logo",
+                child: Image.asset("assets/images/logo.png"),
+              ),
             ),
             const SizedBox(
               height: 24,
