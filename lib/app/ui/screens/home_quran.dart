@@ -1,13 +1,9 @@
 import 'dart:ui';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' as date_format;
-import 'package:tafseer/app/assets/custom_fonts.dart';
 import 'package:tafseer/app/controllers/home_quran_controller.dart';
-import 'package:tafseer/app/controllers/index/index_controller.dart';
-import 'package:tafseer/app/controllers/index/index_data_controller.dart';
 import 'package:tafseer/app/routes/app_routes.dart';
 import 'package:tafseer/app/services/preferences.dart';
 import 'package:tafseer/app/ui/widgets/custom_grid_tile.dart';
