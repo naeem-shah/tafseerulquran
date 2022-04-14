@@ -48,7 +48,7 @@ class ShareEditingController extends GetxController {
       _ayatModel = Get.arguments;
       quran.value = _ayatModel.ayat;
       translation.value = _ayatModel.translation;
-      reference.value = "${indexes[_ayatModel.surahId].name}: ${_ayatModel.ayatNo}";
+      reference.value = "${indexes[_ayatModel.surahId-1].name}: ${_ayatModel.ayatNo}";
     }
   }
   Future<Uint8List?> captureImage() async {
