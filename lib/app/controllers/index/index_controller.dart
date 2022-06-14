@@ -6,7 +6,7 @@ import 'package:tafseer/app/services/database_manager.dart';
 
 class IndexController extends GetxController {
   bool isSurah = true;
-  final RxList<IndexModel> _indexes = <IndexModel>[].obs;
+  final RxList<IndexModel> indexes = RxList<IndexModel>();
 
   @override
   void onInit() {
@@ -30,12 +30,11 @@ class IndexController extends GetxController {
     );
   }
 
-  List<IndexModel> get indexes => List<IndexModel>.from(_indexes);
 
 
   Future getRecords() async {
     final list = await Get.find<DatabaseManager>()
         .getIndexes(isSurah ? Constants.surahTable : Constants.juzTable);
-    _indexes.assignAll(list);
+    indexes.assignAll(list);
   }
 }

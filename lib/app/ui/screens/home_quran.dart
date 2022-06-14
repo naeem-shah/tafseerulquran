@@ -4,14 +4,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' as date_format;
 import 'package:tafseer/app/controllers/home_quran_controller.dart';
+import 'package:tafseer/app/controllers/jump_to_ayah_controller.dart';
 import 'package:tafseer/app/routes/app_routes.dart';
 import 'package:tafseer/app/services/preferences.dart';
 import 'package:tafseer/app/ui/widgets/custom_grid_tile.dart';
+import 'package:tafseer/app/ui/widgets/jump_to_ayah_dialog.dart';
 import 'package:tafseer/app/ui/widgets/settings_bottom_sheet.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../assets/constants.dart';
-import 'app_drawer.dart';
 
 class HomeQuran extends StatelessWidget {
   const HomeQuran({Key? key}) : super(key: key);
@@ -95,7 +96,8 @@ class HomeQuran extends StatelessWidget {
                           textDirection: TextDirection.ltr,
                           child: ListTile(
                             title: Text(
-                              "${controller.hijri.hDay} ${controller.hijri.longMonthName}",
+                              "${controller.hijri.hDay} ${controller.hijri
+                                  .longMonthName}",
                               style: Get.textTheme.headlineSmall?.copyWith(
                                 color: Colors.white,
                               ),
@@ -124,7 +126,6 @@ class HomeQuran extends StatelessWidget {
                 textDirection: TextDirection.ltr,
                 child: GestureDetector(
                   onTap: () {
-                    // toolbarHeight: 0,
                     Get.toNamed(AppRoutes.search);
                   },
                   child: TextFormField(
@@ -156,8 +157,7 @@ class HomeQuran extends StatelessWidget {
                 crossAxisSpacing: 10,
                 childAspectRatio: 2 / 1.5,
                 shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                 children: [
                   CustomGridTile(
                     imagePath: "assets/images/resume.png",
@@ -197,8 +197,23 @@ class HomeQuran extends StatelessWidget {
                     imagePath: "assets/images/settings.png",
                     title: "Settings",
                     size: 40,
-                    onTap: () =>
-                        Get.bottomSheet(const SettingsBottomSheet()),
+                    onTap: () => Get.bottomSheet(const SettingsBottomSheet()),
+                  ),
+                  CustomGridTile(
+                    imagePath: "assets/images/launch.png",
+                    title: "Jump to Ayah",
+                    size: 40,
+                    onTap: () {
+                      Get.defaultDialog(
+                        title: 'Jump to Ayah',
+                        content: const JumpToAyahDialog(),
+                        onConfirm: (){
+                          Get.find<JumpToAyahController>().jump();
+                        },
+                        textConfirm: "Go",
+                        textCancel: "Cancel"
+                      );
+                    },
                   ),
                   CustomGridTile(
                     imagePath: "assets/images/bookmark.png",
@@ -221,12 +236,12 @@ class HomeQuran extends StatelessWidget {
 
   void onResume() {
     int position = Get.find<Preferences>().getInt(
-          key: Constants.recentPosition,
-        ) ??
+      key: Constants.recentPosition,
+    ) ??
         0;
     int surahId = Get.find<Preferences>().getInt(
-          key: Constants.recentSurahId,
-        ) ??
+      key: Constants.recentSurahId,
+    ) ??
         1;
 
     Get.toNamed(

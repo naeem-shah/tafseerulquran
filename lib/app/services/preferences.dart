@@ -25,7 +25,8 @@ class Preferences extends GetxService {
     return _preferences.getDouble(key);
   }
 
-  Future<void> setString({required String key, required String value}) async {
+  Future<void> setString({required String key, required String? value}) async {
+    if (value == null) return;
     await _preferences.setString(key, value);
   }
 

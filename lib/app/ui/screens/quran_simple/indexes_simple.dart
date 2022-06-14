@@ -1,4 +1,3 @@
-import 'package:download_assets/download_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tafseer/app/controllers/index/index_data_controller.dart';

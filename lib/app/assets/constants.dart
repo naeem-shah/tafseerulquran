@@ -21,6 +21,11 @@ class Constants {
   static const String ayatNo = "AyatNo";
   static const String isBookmark = "IsBookmark";
 
+  static const String messageId = "message_id";
+  static const String actionType = "action_type";
+  static const String data = "data";
+  static const String others = "others";
+
   static const String fontQuran = "font_quran";
   static const String fontTranslation = "font_translation";
   static const String fontExplanation = "font_explanation";

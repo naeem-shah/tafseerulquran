@@ -11,13 +11,14 @@ class HomeQuranController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+
     getAyah();
   }
 
   Future getAyah() async {
     AyatModel ayatModel = await Get.find<DatabaseManager>().dailyAyah();
     if (ayatModel.ayatNo == 0 || ayatModel.id == 1) {
-      print("Fetching again Ayah");
+      Get.log("Fetching again Ayah");
       getAyah();
       return;
     }

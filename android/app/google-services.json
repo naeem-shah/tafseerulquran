@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "907830660555",
+    "project_id": "tafseer-ul-quran",
+    "storage_bucket": "tafseer-ul-quran.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907830660555:android:994c644df357ccf689ba4e",
+        "android_client_info": {
+          "package_name": "com.naeem.tafseerulquran"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907830660555-t8skana39nlije31hjvkv0pu3jnoumml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbpb7LtNB9gBWyuZKSO4O-XNpvtRJbdRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907830660555-t8skana39nlije31hjvkv0pu3jnoumml.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

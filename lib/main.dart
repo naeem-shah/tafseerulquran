@@ -7,7 +7,7 @@ import 'package:tafseer/app/services/services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Services().initServices();
+  await Services().initServices();
 
   runApp(
     GetMaterialApp(
