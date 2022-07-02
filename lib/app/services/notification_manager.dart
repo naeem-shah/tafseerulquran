@@ -1,8 +1,8 @@
-import 'dart:convert';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:tafseer/app/services/local_notification_manager.dart';
 import 'package:tafseer/app/services/preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../assets/constants.dart';
 
@@ -68,14 +68,9 @@ class PushNotificationsManager extends GetxService {
 
     RemoteNotification? notification = message.notification;
     String? action = message.data[Constants.actionType];
-    Map<String, dynamic>? payload;
-    if (!GetUtils.isNullOrBlank(message.data[Constants.data])!) {
-      payload = json.decode(message.data[Constants.data]);
-    }
 
     String title = notification?.title ?? "";
     String body = notification?.body ?? "";
-
 
     if (isForeground) {
       Get.find<LocalNotificationManger>().showNotification(
@@ -95,7 +90,7 @@ class PushNotificationsManager extends GetxService {
     } else {
       navigate(
         action,
-        payload: payload,
+        payload: message.data,
       );
     }
   }
@@ -119,5 +114,17 @@ class PushNotificationsManager extends GetxService {
         },
       );
 
-  void navigate(String? type, {Map<String, dynamic>? payload}) {}
+  void navigate(String? type, {Map<String, dynamic>? payload}) {
+
+    /// handle newer version.
+    if (type == Constants.actionTypeURL) {
+      Uri? uri = Uri.tryParse(payload?[Constants.data]);
+      if (uri != null) {
+        launchUrl(
+          uri,
+          mode: LaunchMode.externalApplication,
+        );
+      }
+    }
+  }
 }

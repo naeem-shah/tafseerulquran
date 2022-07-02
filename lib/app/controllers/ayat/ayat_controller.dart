@@ -17,6 +17,8 @@ class AyatController extends GetxController {
   final List<IndexModel> surahs = [];
   int lastVisible = 0;
 
+  final RxDouble sliderValue = RxDouble(1);
+
   bool get translationVisible => _translationVisible.value;
 
   bool get tafsirVisible => _tafsirVisible.value;
@@ -34,7 +36,6 @@ class AyatController extends GetxController {
     assert(Get.arguments != null, "Must pass isSurah: BOOL, index: IndexModel");
 
     if (Get.arguments != null) {
-
       if (Get.arguments["isRecent"]) {
         int scrollPosition = Get.arguments["scroll_position"];
         int surahId = Get.arguments["surah_id"];
@@ -49,16 +50,9 @@ class AyatController extends GetxController {
             milliseconds: 250,
           ),
           () {
-            scrollController.scrollTo(
-              index: scrollPosition,
-              duration: const Duration(
-                milliseconds: 300,
-              ),
-            );
+            scrollToAyat(scrollPosition);
           },
         );
-
-
       } else {
         indexes.assignAll(Get.arguments["indexes"]);
         final int index = Get.arguments["index"];
@@ -105,5 +99,18 @@ class AyatController extends GetxController {
     }
 
     return Future.value(true);
+  }
+
+  /// if surah is tauba then exclude bismillah
+  double get sliderLength =>
+      ayahs.length.toDouble() - (selectedIndex?.id == 9 ? 0 : 1);
+
+  void scrollToAyat(int ayatNo) {
+    scrollController.scrollTo(
+      index: ayatNo,
+      duration: const Duration(
+        milliseconds: 200,
+      ),
+    );
   }
 }

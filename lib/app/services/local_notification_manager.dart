@@ -27,14 +27,14 @@ class LocalNotificationManger extends GetxService {
   }
 
   Future showNotification(String title, String body) async {
-    const AndroidNotificationDetails androidDetails =
-        AndroidNotificationDetails(
+    const AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
       'Updates',
       'Updates',
       channelDescription: 'Updates about application',
       importance: Importance.defaultImportance,
       priority: Priority.defaultPriority,
     );
+
     const NotificationDetails platformChannelSpecifics = NotificationDetails(
       android: androidDetails,
     );

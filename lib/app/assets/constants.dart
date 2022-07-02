@@ -3,6 +3,8 @@ class Constants {
   static const String juzIndex = "JuzIndex";
 
   static const String db = "tafsir.db";
+  /// do not decrease the value of [dbVersion]
+  static const int dbVersion = 2;
   static const String ayatTable = "Ayat";
   static const String juzTable = "Juz";
   static const String surahTable = "Surah";
@@ -23,6 +25,7 @@ class Constants {
 
   static const String messageId = "message_id";
   static const String actionType = "action_type";
+  static const String actionTypeURL = "url";
   static const String data = "data";
   static const String others = "others";
 

@@ -8,6 +8,8 @@ import 'package:tafseer/app/ui/widgets/ayat_widget.dart';
 import 'package:tafseer/app/ui/widgets/settings_bottom_sheet.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
+import '../../widgets/ayah_slider.dart';
+
 class Ayat extends StatelessWidget {
   const Ayat({Key? key}) : super(key: key);
 
@@ -17,59 +19,59 @@ class Ayat extends StatelessWidget {
 
     return WillPopScope(
       onWillPop: controller.onPopScope,
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-
-          title: Obx(
-            () => Text(
+      child: Obx(() {
+        return Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            title: Text(
               "${controller.selectedIndex?.id} - ${controller.selectedIndex?.name}",
               style: const TextStyle(
                 fontFamily: AppFonts.nooreHuda,
               ),
               // textDirection: TextDirection.rtl,
             ),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.settings),
+                onPressed: () {
+                  Get.bottomSheet(
+                    const SettingsBottomSheet(),
+                    isScrollControlled: true,
+                  );
+                },
+              )
+            ],
+            bottom: controller.isSurah ? const AyahSlider() : null,
           ),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.settings),
-              onPressed: () {
-                Get.bottomSheet(
-                  const SettingsBottomSheet(),
-                  isScrollControlled: true,
-                );
-              },
-            )
-          ],
-        ),
-        body: Obx(() {
-          if (controller.ayahs.isNotEmpty) {
-            return ScrollablePositionedList.builder(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              itemBuilder: (_, index) {
-                final AyatModel ayatModel = controller.ayahs[index];
-                return VisibilityDetector(
-                  key: Key(ayatModel.id.toString()),
-                  onVisibilityChanged: (VisibilityInfo info) {
-                    if (info.visibleFraction == 1) {
-                      controller.lastVisible = index;
-                    }
-                  },
-                  child: AyatWidget(
-                    ayatModel: ayatModel,
-                  ),
-                );
-              },
-              itemCount: controller.ayahs.length,
-              itemScrollController: controller.scrollController,
-            );
-          }
+          body: Obx(() {
+            if (controller.ayahs.isNotEmpty) {
+              return ScrollablePositionedList.builder(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                itemBuilder: (_, index) {
+                  final AyatModel ayatModel = controller.ayahs[index];
+                  return VisibilityDetector(
+                    key: Key(ayatModel.id.toString()),
+                    onVisibilityChanged: (VisibilityInfo info) {
+                      if (info.visibleFraction == 1) {
+                        controller.lastVisible = index;
+                      }
+                    },
+                    child: AyatWidget(
+                      ayatModel: ayatModel,
+                    ),
+                  );
+                },
+                itemCount: controller.ayahs.length,
+                itemScrollController: controller.scrollController,
+              );
+            }
 
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }),
-      ),
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }),
+        );
+      }),
     );
   }
 }

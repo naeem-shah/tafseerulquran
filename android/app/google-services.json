@@ -29,10 +29,18 @@
             {
               "client_id": "907830660555-t8skana39nlije31hjvkv0pu3jnoumml.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "907830660555-s3ek9dea90srfr853bobjrrkaiomcnko.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.naeem.tafseerulquran"
+              }
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-8385055947555258~6144001633"
     }
   ],
   "configuration_version": "1"

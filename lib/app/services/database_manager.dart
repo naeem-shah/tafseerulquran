@@ -18,7 +18,15 @@ class DatabaseManager extends GetxService {
     final path = join(databasesPath, Constants.db);
 
     // Check if the database exists
-    final exists = await databaseExists(path);
+    bool exists = await databaseExists(path);
+
+    if (exists) {
+      int dbVersion = await (await openDatabase(path)).getVersion();
+      if (dbVersion < Constants.dbVersion) {
+        await deleteDatabase(path);
+        exists = false;
+      }
+    }
 
     if (!exists) {
       // Should happen only the first time you launch your application
@@ -35,7 +43,10 @@ class DatabaseManager extends GetxService {
       await File(path).writeAsBytes(bytes, flush: true);
     }
 
-    _database = await openDatabase(path);
+    _database = await openDatabase(
+      path,
+      version: Constants.dbVersion,
+    );
     return this;
   }
 

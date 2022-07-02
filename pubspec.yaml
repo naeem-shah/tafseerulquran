@@ -22,20 +22,21 @@ dependencies:
   sqflite: ^2.0.2
   get: ^4.6.1
   flutter_parsed_text: ^2.2.1
-  share: ^2.0.4
-  scrollable_positioned_list: ^0.2.3
-  visibility_detector: ^0.2.2
+  share_plus: ^4.0.10
+  scrollable_positioned_list: ^0.3.1
+  visibility_detector: ^0.3.2
   hijri: ^3.0.0
   enum_to_string: ^2.0.1
   wakelock: ^0.6.1+2
   download_assets: ^3.0.0
   font_awesome_flutter: ^10.1.0
   url_launcher: ^6.0.20
-  firebase_core: ^1.17.1
+  firebase_core: ^1.19.1
   firebase_messaging: ^11.4.1
   flutter_local_notifications: ^9.5.3+1
   flutter_native_splash: ^2.1.6
   upgrader: 3.14.0
+  firebase_crashlytics: ^2.8.4
 
 
 dev_dependencies:

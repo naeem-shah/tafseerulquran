@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:share/share.dart';
 import 'package:flutter/services.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:tafseer/app/assets/constants.dart';
 import 'package:tafseer/app/controllers/bookmark_controller.dart';
 import 'package:tafseer/app/controllers/index/index_data_controller.dart';

@@ -2,8 +2,8 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:share/share.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:tafseer/app/assets/constants.dart';
 import 'package:tafseer/app/models/ayat_model.dart';
 import 'package:tafseer/app/models/index_model.dart';
@@ -48,9 +48,11 @@ class ShareEditingController extends GetxController {
       _ayatModel = Get.arguments;
       quran.value = _ayatModel.ayat;
       translation.value = _ayatModel.translation;
-      reference.value = "${indexes[_ayatModel.surahId-1].name}: ${_ayatModel.ayatNo}";
+      reference.value =
+          "${indexes[_ayatModel.surahId - 1].name}: ${_ayatModel.ayatNo}";
     }
   }
+
   Future<Uint8List?> captureImage() async {
     return await screenshotController.capture(
       pixelRatio: Get.pixelRatio,
