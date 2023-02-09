@@ -22,18 +22,18 @@ class ShareEditing extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            child: const Text("SAVE"),
             style: TextButton.styleFrom(
-              primary: Colors.white,
+              foregroundColor: Colors.white,
             ),
             onPressed: controller.onSave,
+            child: const Text("SAVE"),
           ),
           TextButton(
-            child: const Text("SHARE"),
             style: TextButton.styleFrom(
-              primary: Colors.white,
+              foregroundColor: Colors.white,
             ),
             onPressed: controller.onShare,
+            child: const Text("SHARE"),
           ),
         ],
       ),

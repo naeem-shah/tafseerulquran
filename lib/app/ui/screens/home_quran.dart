@@ -32,7 +32,7 @@ class HomeQuran extends StatelessWidget {
             ),
             child: ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                primary: Colors.grey.shade200,
+                backgroundColor: Colors.grey.shade200,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(

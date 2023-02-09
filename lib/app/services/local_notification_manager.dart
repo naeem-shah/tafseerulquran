@@ -9,15 +9,12 @@ class LocalNotificationManger extends GetxService {
     localNotification = FlutterLocalNotificationsPlugin();
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings('@mipmap/ic_launcher');
-    const IOSInitializationSettings initializationSettingsIOS =
-        IOSInitializationSettings();
-    const MacOSInitializationSettings initializationSettingsMacOS =
-        MacOSInitializationSettings();
+    const DarwinInitializationSettings initializationSettingsIOS =
+        DarwinInitializationSettings();
     const InitializationSettings initializationSettings =
         InitializationSettings(
       android: initializationSettingsAndroid,
       iOS: initializationSettingsIOS,
-      macOS: initializationSettingsMacOS,
     );
 
     await localNotification.initialize(
@@ -27,7 +24,8 @@ class LocalNotificationManger extends GetxService {
   }
 
   Future showNotification(String title, String body) async {
-    const AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
+    const AndroidNotificationDetails androidDetails =
+        AndroidNotificationDetails(
       'Updates',
       'Updates',
       channelDescription: 'Updates about application',

@@ -45,6 +45,7 @@ class QuranReading extends StatelessWidget {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
               onPressed: () {
@@ -70,7 +71,6 @@ class QuranReading extends StatelessWidget {
               splashRadius: 20,
             ),
           ],
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         ),
       ),
     );

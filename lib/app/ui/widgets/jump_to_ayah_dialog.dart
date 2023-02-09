@@ -27,6 +27,7 @@ class JumpToAyahDialog extends StatelessWidget {
               items: controller.surahs
                   .map(
                     (index) => DropdownMenuItem(
+                      value: index,
                       child: RichText(
                         text: TextSpan(
                           text: "${index.id} - ",
@@ -41,7 +42,6 @@ class JumpToAyahDialog extends StatelessWidget {
                           style: Get.textTheme.subtitle1?.copyWith(),
                         ),
                       ),
-                      value: index,
                     ),
                   )
                   .toList(),

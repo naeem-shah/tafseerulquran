@@ -37,8 +37,7 @@ class QuranDownloading extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             const Text("Please Wait..."),
-                            Text((controller.progress.value!*100).toStringAsFixed(2) +
-                                " %"),
+                            Text("${(controller.progress.value!*100).toStringAsFixed(2)} %"),
                           ],
                         ),
                         const SizedBox(

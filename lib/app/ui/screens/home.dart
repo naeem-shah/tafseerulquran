@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -44,7 +43,7 @@ class HomePage extends StatelessWidget {
             ),
             child: ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                primary: Colors.grey.shade200,
+                backgroundColor: Colors.grey.shade200,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(
@@ -79,8 +78,10 @@ class HomePage extends StatelessWidget {
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.grey.shade200,
       body: UpgradeAlert(
-        debugLogging: kDebugMode || kProfileMode,
-        appcastConfig: config,
+        upgrader: Upgrader(
+          debugLogging: kDebugMode || kProfileMode,
+          appcastConfig: config,
+        ),
         child: SizedBox(
           width: Get.width,
           height: Get.height,
@@ -165,13 +166,10 @@ class HomePage extends StatelessWidget {
                                       height: 6,
                                     ),
                                     SelectableText(
-                                      controller.dailyAyat.value!.translation +
-                                          " [" +
-                                          Get.find<IndexDataController>()
+                                      "${controller.dailyAyat.value!.translation} [${Get.find<IndexDataController>()
                                               .getIndex(controller
                                                   .dailyAyat.value!.surahId)
-                                              .name +
-                                          "]",
+                                              .name}]",
                                       style: Get.textTheme.titleLarge
                                           ?.copyWith(fontFamily: AppFonts.urdu),
                                       textAlign: TextAlign.center,
