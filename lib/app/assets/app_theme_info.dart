@@ -1,7 +1,9 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 ThemeData get customAppTheme => ThemeData(
+      primaryColor: generateMaterialColor(const Color(0xFF534741)),
       primarySwatch: generateMaterialColor(const Color(0xFF534741)),
       colorScheme: ColorScheme.fromSwatch(
         primarySwatch: generateMaterialColor(const Color(0xFF534741)),

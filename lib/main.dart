@@ -8,9 +8,9 @@ import 'package:tafseer/app/routes/app_pages.dart';
 import 'package:tafseer/app/routes/app_routes.dart';
 import 'package:tafseer/app/services/services.dart';
 
+import 'app/services/analytics_service.dart';
+
 void main() async {
-
-
   runZonedGuarded<Future<void>>(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
@@ -39,8 +39,11 @@ class MyApp extends StatelessWidget {
       theme: customAppTheme,
       getPages: pages,
       initialRoute: AppRoutes.splash,
-      transitionDuration: const Duration(milliseconds: 200),
+      transitionDuration: const Duration(milliseconds: 100),
       defaultTransition: Transition.rightToLeft,
+      navigatorObservers: [
+        Get.find<AnalyticsService>().getAnalyticsObserver(),
+      ],
     );
   }
 }

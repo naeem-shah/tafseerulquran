@@ -12,6 +12,7 @@ import 'package:tafseer/app/services/notification_manager.dart';
 import 'package:tafseer/app/services/preferences.dart';
 
 import '../../firebase_options.dart';
+import 'analytics_service.dart';
 
 class Services {
   static final Services _instance = Services._();
@@ -24,6 +25,8 @@ class Services {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+
+    Get.lazyPut(() => AnalyticsService());
 
     // Pass all uncaught errors from the framework to Crashlytics.
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
@@ -57,17 +60,14 @@ class Services {
       );
     }
 
-
     await Get.putAsync(
-          () => LocalNotificationManger().initialize(),
+      () => LocalNotificationManger().initialize(),
       permanent: true,
     );
 
     await Get.putAsync(
-          () => PushNotificationsManager().init(),
+      () => PushNotificationsManager().init(),
       permanent: true,
     );
-
-
   }
 }
