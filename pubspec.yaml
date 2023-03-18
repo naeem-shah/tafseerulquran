@@ -38,6 +38,7 @@ dependencies:
   firebase_messaging: ^14.2.2
   firebase_crashlytics: ^3.0.12
   firebase_analytics: ^10.1.5
+  path: ^1.8.2
 
 
 

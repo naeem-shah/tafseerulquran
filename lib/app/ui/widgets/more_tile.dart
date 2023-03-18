@@ -30,7 +30,7 @@ class MoreTile extends StatelessWidget {
           ),
           Text(
             title,
-            style: Get.textTheme.subtitle2,
+            style: Get.textTheme.titleSmall,
           ),
         ],
       ),

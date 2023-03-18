@@ -9,8 +9,8 @@ import 'package:tafseer/app/controllers/home_quran_controller.dart';
 import 'package:tafseer/app/routes/app_routes.dart';
 import 'package:intl/intl.dart' as date_format;
 import 'package:upgrader/upgrader.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/foundation.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../assets/custom_fonts.dart';
 import '../../controllers/index/index_data_controller.dart';
@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                launch(
+                launchUrlString(
                   Constants.officialChannel,
                 );
               },
@@ -63,7 +63,7 @@ class HomePage extends StatelessWidget {
               ),
               label: Text(
                 "YouTube",
-                style: Get.textTheme.bodyText1?.copyWith(
+                style: Get.textTheme.bodyLarge?.copyWith(
                   color: Colors.red,
                 ),
               ),
@@ -188,7 +188,7 @@ class HomePage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(4),
                           child: GestureDetector(
                             onTap: () {
-                              launch(Constants.tarjumaChannel);
+                              launchUrlString(Constants.tarjumaChannel);
                             },
                             child: Image.asset(
                               "assets/images/home_banner.jpg",
@@ -250,7 +250,7 @@ class HomePage extends StatelessWidget {
             ),
             title: Text(
               "Quran",
-              style: Get.textTheme.subtitle1?.copyWith(
+              style: Get.textTheme.titleMedium?.copyWith(
                 color: Colors.white,
               ),
             ),

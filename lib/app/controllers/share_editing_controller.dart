@@ -70,7 +70,8 @@ class ShareEditingController extends GetxController {
       final imagePath = await File('$directory/${_ayatModel.id}.png').create();
       await imagePath.writeAsBytes(image);
 
-      Share.shareFiles([imagePath.path]);
+
+      Share.shareXFiles([XFile(imagePath.path)]);
     }
   }
 

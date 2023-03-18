@@ -27,7 +27,7 @@ class BottomSheetClosingWidget extends StatelessWidget {
             if (title != null)
               Text(
                 title!,
-                style: Get.textTheme.subtitle2,
+                style: Get.textTheme.titleSmall,
                 textAlign: TextAlign.center,
               ),
           ],

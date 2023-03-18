@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:tafseer/app/assets/constants.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -50,7 +50,7 @@ class AppDrawer extends StatelessWidget {
                 title: const Text("Official channel"),
                 trailing: const Icon(Icons.keyboard_arrow_right_rounded),
                 onTap: () {
-                  launch(Constants.officialChannel);
+                  launchUrlString(Constants.officialChannel);
                 },
               ),
               const Divider(
@@ -64,7 +64,7 @@ class AppDrawer extends StatelessWidget {
                 title: const Text("Tarjuma Tul Quran"),
                 trailing: const Icon(Icons.keyboard_arrow_right_rounded),
                 onTap: () {
-                  launch(Constants.tarjumaChannel);
+                  launchUrlString(Constants.tarjumaChannel);
                 },
               ),
               const Divider(
@@ -79,15 +79,15 @@ class AppDrawer extends StatelessWidget {
                 trailing: const Icon(Icons.keyboard_arrow_right_rounded),
                 onTap: () async {
                   try {
-                    bool launched = await launch("fb://page/300720972064443",
-                        forceSafariVC: false);
+                    bool launched = await launchUrlString("fb://page/300720972064443",
+                        );
                     if (!launched) {
-                      await launch("https://www.facebook.com/300720972064443",
-                          forceSafariVC: false);
+                      await launchUrlString("https://www.facebook.com/300720972064443",
+                          );
                     }
                   } catch (e) {
-                    await launch("https://www.facebook.com/300720972064443",
-                        forceSafariVC: false);
+                    await launchUrlString("https://www.facebook.com/300720972064443",
+                        );
                   }
                 },
               ),
@@ -102,7 +102,7 @@ class AppDrawer extends StatelessWidget {
                 title: const Text("Whatsapp Group"),
                 trailing: const Icon(Icons.keyboard_arrow_right_rounded),
                 onTap: () {
-                  launch(Constants.whatsappGroup);
+                  launchUrlString(Constants.whatsappGroup);
                 },
               ),
               const Divider(
@@ -116,7 +116,7 @@ class AppDrawer extends StatelessWidget {
                 title: const Text("Sound Cloud"),
                 trailing: const Icon(Icons.keyboard_arrow_right_rounded),
                 onTap: () {
-                  launch(Constants.soundCloud);
+                  launchUrlString(Constants.soundCloud);
                 },
               ),
               const Divider(
@@ -131,20 +131,17 @@ class AppDrawer extends StatelessWidget {
                 trailing: const Icon(Icons.keyboard_arrow_right_rounded),
                 onTap: () async {
                   try {
-                    bool launched = await launch(
+                    bool launched = await launchUrlString(
                       "twitter://user?user_id=BhutviOfficial",
-                      forceSafariVC: false,
                     );
                     if (!launched) {
-                      await launch(
+                      await launchUrlString(
                         "https://twitter.com/search?q=BhutviOfficial",
-                        forceSafariVC: false,
                       );
                     }
                   } catch (e) {
-                    await launch(
+                    await launchUrlString(
                       "https://twitter.com/search?q=BhutviOfficial",
-                      forceSafariVC: false,
                     );
                   }
                 },
@@ -161,20 +158,17 @@ class AppDrawer extends StatelessWidget {
                 trailing: const Icon(Icons.keyboard_arrow_right_rounded),
                 onTap: () async {
                   try {
-                    bool launched = await launch(
+                    bool launched = await launchUrlString(
                       "twitter://user?user_id=AlQuranulKarem",
-                      forceSafariVC: false,
                     );
                     if (!launched) {
-                      await launch(
+                      await launchUrlString(
                         "https://twitter.com/search?q=AlQuranulKarem",
-                        forceSafariVC: false,
                       );
                     }
                   } catch (e) {
-                    await launch(
+                    await launchUrlString(
                       "https://twitter.com/search?q=AlQuranulKarem",
-                      forceSafariVC: false,
                     );
                   }
                 },
@@ -190,7 +184,7 @@ class AppDrawer extends StatelessWidget {
                 title: const Text("Telegram Channel"),
                 trailing: const Icon(Icons.keyboard_arrow_right_rounded),
                 onTap: () {
-                  launch(Constants.telegram);
+                  launchUrlString(Constants.telegram);
                 },
               ),
               const Divider(
@@ -205,9 +199,8 @@ class AppDrawer extends StatelessWidget {
                 trailing: const Icon(Icons.keyboard_arrow_right_rounded),
                 onTap: () async {
                   try {
-                    await launch(
+                    await launchUrlString(
                       "whatsapp://send?phone=+923000710483",
-                      forceSafariVC: false,
                     );
                   } catch (e) {
                     Get.rawSnackbar(

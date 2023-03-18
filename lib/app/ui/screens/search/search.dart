@@ -56,7 +56,7 @@ class Search extends StatelessWidget {
                   () => ChoiceChip(
                     label: Text(
                       "In Explanation",
-                      style: Get.textTheme.bodyText2?.copyWith(
+                      style: Get.textTheme.bodyMedium?.copyWith(
                         color: controller.inExplanation.value
                             ? Colors.white
                             : Get.theme.primaryColor,
@@ -76,7 +76,7 @@ class Search extends StatelessWidget {
                   () => ChoiceChip(
                     label: Text(
                       "In Translation",
-                      style: Get.textTheme.bodyText2?.copyWith(
+                      style: Get.textTheme.bodyMedium?.copyWith(
                         color: controller.inTranslation.value
                             ? Colors.white
                             : Get.theme.primaryColor,
@@ -96,7 +96,7 @@ class Search extends StatelessWidget {
                   () => ChoiceChip(
                     label: Text(
                       "In Quran",
-                      style: Get.textTheme.bodyText2?.copyWith(
+                      style: Get.textTheme.bodyMedium?.copyWith(
                         color: controller.inQuran.value
                             ? Colors.white
                             : Get.theme.primaryColor,
@@ -118,7 +118,7 @@ class Search extends StatelessWidget {
                       return Chip(
                         label: Text(
                           controller.selectedSurah.value!.name,
-                          style: Get.textTheme.bodyText1?.copyWith(
+                          style: Get.textTheme.bodyLarge?.copyWith(
                             color: Colors.white,
                             fontFamily: "NooreHuda",
                           ),
@@ -135,7 +135,7 @@ class Search extends StatelessWidget {
                       label: const Text(
                         "Surah",
                       ),
-                      labelStyle: Get.textTheme.bodyText1?.copyWith(
+                      labelStyle: Get.textTheme.bodyLarge?.copyWith(
                         color: Colors.white,
                       ),
                       selected: true,
@@ -187,7 +187,7 @@ class Search extends StatelessWidget {
                       return Chip(
                         label: Text(
                           controller.selectedJuz.value!.name,
-                          style: Get.textTheme.bodyText1?.copyWith(
+                          style: Get.textTheme.bodyLarge?.copyWith(
                             color: Colors.white,
                             fontFamily: "NooreHuda",
                           ),
@@ -204,7 +204,7 @@ class Search extends StatelessWidget {
                       label: const Text(
                         "Juz",
                       ),
-                      labelStyle: Get.textTheme.bodyText1?.copyWith(
+                      labelStyle: Get.textTheme.bodyLarge?.copyWith(
                         color: Colors.white,
                       ),
                       selected: true,

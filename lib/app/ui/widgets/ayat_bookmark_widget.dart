@@ -58,7 +58,7 @@ class AyatBookmarkTile extends StatelessWidget {
                         ? "${indexController.surahs[ayatModel.surahId-1].name}: ${ayatModel.ayatNo}"
                         : indexController.surahs[ayatModel.surahId-1].name,
                     textAlign: TextAlign.center,
-                    style: Get.textTheme.bodyText2?.copyWith(
+                    style: Get.textTheme.bodyMedium?.copyWith(
                       fontFamily: AppFonts.nooreHuda,
                       fontSize: 18,
                     ),

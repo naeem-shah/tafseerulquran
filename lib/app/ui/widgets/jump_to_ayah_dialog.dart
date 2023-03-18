@@ -34,12 +34,12 @@ class JumpToAyahDialog extends StatelessWidget {
                           children: [
                             TextSpan(
                               text: index.name,
-                              style: Get.textTheme.subtitle1?.copyWith(
+                              style: Get.textTheme.titleMedium?.copyWith(
                                 fontFamily: "NooreHuda",
                               ),
                             ),
                           ],
-                          style: Get.textTheme.subtitle1?.copyWith(),
+                          style: Get.textTheme.titleMedium?.copyWith(),
                         ),
                       ),
                     ),

@@ -10,7 +10,7 @@ import 'package:tafseer/app/services/preferences.dart';
 import 'package:tafseer/app/ui/widgets/custom_grid_tile.dart';
 import 'package:tafseer/app/ui/widgets/jump_to_ayah_dialog.dart';
 import 'package:tafseer/app/ui/widgets/settings_bottom_sheet.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../assets/constants.dart';
 
@@ -41,7 +41,7 @@ class HomeQuran extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                launch(
+                launchUrlString(
                   Constants.officialChannel,
                 );
               },
@@ -52,7 +52,7 @@ class HomeQuran extends StatelessWidget {
               ),
               label: Text(
                 "YouTube",
-                style: Get.textTheme.bodyText1?.copyWith(
+                style: Get.textTheme.bodyLarge?.copyWith(
                   color: Colors.red,
                 ),
               ),

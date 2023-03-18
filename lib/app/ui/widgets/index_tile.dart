@@ -34,7 +34,7 @@ class IndexTile extends StatelessWidget {
               ),
               child: Text(
                 "${indexModel.id}",
-                style: Get.textTheme.subtitle1?.copyWith(color: Colors.white),
+                style: Get.textTheme.titleMedium?.copyWith(color: Colors.white),
               ),
             ),
             trailing: Text(

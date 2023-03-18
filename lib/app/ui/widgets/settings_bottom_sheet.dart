@@ -75,7 +75,7 @@ class SettingsBottomSheet extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(8.0, 16, 0, 8),
               child: Text(
                 "Reading Mode",
-                style: Get.textTheme.subtitle2,
+                style: Get.textTheme.titleSmall,
               ),
             ),
             const Divider(
