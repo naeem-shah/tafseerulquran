@@ -21,27 +21,28 @@ class QuranReading extends StatelessWidget {
         centerTitle: true,
         elevation: 0,
       ),
-      body: SafeArea(
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Obx((){
-            if (controller.assetInitialized.value){
-              return PageView.builder(
-                controller: controller.pageController,
-                onPageChanged: (int page) {
-                  controller.pageNo.value = page;
-                },
-                itemBuilder: (_, index) {
-                  final File file = controller.images[index];
-                  return Image.file(
-                    file,
-                  );
-                },
-              );
-            }
-            return const Center(child: CircularProgressIndicator(),);
-          }),
-        ),
+      body: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Obx(() {
+          if (controller.assetInitialized.value) {
+            return PageView.builder(
+              controller: controller.pageController,
+              onPageChanged: (int page) {
+                controller.pageNo.value = page;
+              },
+              itemBuilder: (_, index) {
+                final File file = controller.images[index];
+                return Image.file(
+                  file,
+                  fit: BoxFit.fill,
+                );
+              },
+            );
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }),
       ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
@@ -49,10 +50,12 @@ class QuranReading extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {
-                controller.pageController.nextPage(
-                  duration: controller.duration,
-                  curve: controller.curve,
-                );
+                if (controller.pageNo.value < 547) {
+                  controller.pageController.nextPage(
+                    duration: controller.duration,
+                    curve: controller.curve,
+                  );
+                }
               },
               icon: const Icon(Icons.keyboard_arrow_left),
               splashRadius: 20,
@@ -66,6 +69,7 @@ class QuranReading extends StatelessWidget {
                   duration: controller.duration,
                   curve: controller.curve,
                 );
+
               },
               icon: const Icon(Icons.keyboard_arrow_right),
               splashRadius: 20,

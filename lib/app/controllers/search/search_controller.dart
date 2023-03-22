@@ -32,66 +32,41 @@ class SearchController extends GetxController {
   Future search() async {
     debouncer.call(() async {
       isLoading.value = true;
-      final String query = queryController.text;
+      String query = queryController.text;
       if (query.isEmpty) {
         return;
       }
-      String where = "";
+      query = "%$query%";
+
+      String where = " 1 = 1 ";
       List<dynamic> arguments = [];
-      // only quran
 
+      if (inQuran.value) {
+        where += " AND ${Constants.arabicClean} LIKE ? ";
+        arguments.add(query);
+      }
 
-      if (inQuran.value && !inTranslation.value && !inExplanation.value) {
-        where = "${Constants.arabicClean} LIKE ? ";
-        arguments.add("%$query%");
-      } else if (inQuran.value && inTranslation.value && !inExplanation.value) {
-        // quran and translation
-        where =
-            "${Constants.arabicClean} LIKE ? OR ${Constants.translation} LIKE ? ";
-        arguments.add("%$query%");
-        arguments.add("%$query%");
-      } else if (inQuran.value && inTranslation.value && inExplanation.value) {
-        // quran, translation and explanation
-        where =
-            "${Constants.arabicClean} LIKE ? OR ${Constants.translation} LIKE ? OR ${Constants.tafsir} LIKE ? ";
-        arguments.add("%$query%");
-        arguments.add("%$query%");
-        arguments.add("%$query%");
-      } else if (inQuran.value && !inTranslation.value && inExplanation.value) {
-        // quran and tafseer
-        where =
-            "${Constants.arabicClean} LIKE ? OR ${Constants.tafsir} LIKE ? ";
-        arguments.add("%$query%");
-        arguments.add("%$query%");
-      } else if (!inQuran.value && inTranslation.value && inExplanation.value) {
-        // translation and tafseer
-        where =
-            "${Constants.translation} LIKE ? OR ${Constants.tafsir} LIKE ? ";
-        arguments.add("%$query%");
-        arguments.add("%$query%");
-      } else if (!inQuran.value &&
-          !inTranslation.value &&
-          inExplanation.value) {
-        // tafseer only
-        where = "${Constants.tafsir} LIKE ? ";
-        arguments.add("%$query%");
-      } else if (!inQuran.value &&
-          inTranslation.value &&
-          !inExplanation.value) {
-        // translation only
-        where = "${Constants.tafsir} LIKE ? ";
-        arguments.add("%$query%");
+      if (inTranslation.value) {
+        where += " AND ${Constants.translation} LIKE ? ";
+        arguments.add(query);
+      }
+      if (inExplanation.value) {
+        where += " AND ${Constants.tafsir} LIKE ? ";
+        arguments.add(query);
       }
 
       if (selectedJuz.value != null) {
-        where += "${arguments.isNotEmpty ? "AND" : ""} ${Constants.juzId} = ? ";
-        arguments.add(selectedJuz.value?.id);
+        where += " AND ${Constants.juzId} = ? ";
+        arguments.add(selectedJuz.value!.id);
       }
 
       if (selectedSurah.value != null) {
-        where += "${arguments.isNotEmpty ? "AND" : ""} ${Constants.surahId} = ? ";
-        arguments.add(selectedSurah.value?.id);
+        where += " AND ${Constants.surahId} = ? ";
+        arguments.add(selectedSurah.value!.id);
       }
+
+      print(where);
+      print(arguments);
 
       final list = await Get.find<DatabaseManager>().search(
         where,

@@ -53,47 +53,7 @@ class Search extends StatelessWidget {
               spacing: 8,
               children: [
                 Obx(
-                  () => ChoiceChip(
-                    label: Text(
-                      "In Explanation",
-                      style: Get.textTheme.bodyMedium?.copyWith(
-                        color: controller.inExplanation.value
-                            ? Colors.white
-                            : Get.theme.primaryColor,
-                      ),
-                    ),
-                    selected: controller.inExplanation.value,
-                    selectedColor: controller.inExplanation.value
-                        ? Get.theme.primaryColor
-                        : Colors.white,
-                    onSelected: (value) {
-                      controller.applySearch();
-                      controller.inExplanation.value = value;
-                    },
-                  ),
-                ),
-                Obx(
-                  () => ChoiceChip(
-                    label: Text(
-                      "In Translation",
-                      style: Get.textTheme.bodyMedium?.copyWith(
-                        color: controller.inTranslation.value
-                            ? Colors.white
-                            : Get.theme.primaryColor,
-                      ),
-                    ),
-                    selected: controller.inTranslation.value,
-                    selectedColor: controller.inTranslation.value
-                        ? Get.theme.primaryColor
-                        : Colors.white,
-                    onSelected: (value) {
-                      controller.applySearch();
-                      controller.inTranslation.value = value;
-                    },
-                  ),
-                ),
-                Obx(
-                  () => ChoiceChip(
+                  () => FilterChip(
                     label: Text(
                       "In Quran",
                       style: Get.textTheme.bodyMedium?.copyWith(
@@ -106,9 +66,52 @@ class Search extends StatelessWidget {
                     selectedColor: controller.inQuran.value
                         ? Get.theme.primaryColor
                         : Colors.white,
+                    checkmarkColor: Colors.white,
                     onSelected: (value) {
                       controller.applySearch();
                       controller.inQuran.value = value;
+                    },
+                  ),
+                ),
+                Obx(
+                  () => FilterChip(
+                    label: Text(
+                      "In Translation",
+                      style: Get.textTheme.bodyMedium?.copyWith(
+                        color: controller.inTranslation.value
+                            ? Colors.white
+                            : Get.theme.primaryColor,
+                      ),
+                    ),
+                    selected: controller.inTranslation.value,
+                    selectedColor: controller.inTranslation.value
+                        ? Get.theme.primaryColor
+                        : Colors.white,
+                    checkmarkColor: Colors.white,
+                    onSelected: (value) {
+                      controller.applySearch();
+                      controller.inTranslation.value = value;
+                    },
+                  ),
+                ),
+                Obx(
+                  () => FilterChip(
+                    label: Text(
+                      "In Explanation",
+                      style: Get.textTheme.bodyMedium?.copyWith(
+                        color: controller.inExplanation.value
+                            ? Colors.white
+                            : Get.theme.primaryColor,
+                      ),
+                    ),
+                    selected: controller.inExplanation.value,
+                    selectedColor: controller.inExplanation.value
+                        ? Get.theme.primaryColor
+                        : Colors.white,
+                    checkmarkColor: Colors.white,
+                    onSelected: (value) {
+                      controller.applySearch();
+                      controller.inExplanation.value = value;
                     },
                   ),
                 ),

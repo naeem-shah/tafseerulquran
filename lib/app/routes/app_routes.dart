@@ -9,7 +9,7 @@ class AppRoutes {
   static const quranReading = "/quran_reading";
   static const indexesSimple = "/indexes_simple";
   static const login = "/login";
-  static const editShare = "/editShare";
+  static const editShare = "/edit_share";
   static const settings = "/settings";
   static const quranDownloading = "/quran_downloading";
 }
