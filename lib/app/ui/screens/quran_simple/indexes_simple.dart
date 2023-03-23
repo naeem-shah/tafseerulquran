@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tafseer/app/assets/constants.dart';
 import 'package:tafseer/app/controllers/index/index_data_controller.dart';
 import 'package:tafseer/app/routes/app_routes.dart';
+import 'package:tafseer/app/services/preferences.dart';
 
 import '../../../models/index_model.dart';
 import '../../widgets/index_tile.dart';
@@ -9,10 +11,11 @@ import '../../widgets/index_tile.dart';
 class IndexesSimple extends StatelessWidget {
   const IndexesSimple({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<IndexDataController>();
+
+    int? recentPage = Get.find<Preferences>().getInt(key: Constants.recentPage);
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
@@ -38,6 +41,38 @@ class IndexesSimple extends StatelessWidget {
         },
         itemCount: controller.juz.length,
       ),
+      bottomNavigationBar: recentPage != null
+          ? BottomAppBar(
+              child: Card(
+                color: Get.theme.primaryColor,
+                margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+                child: ListTile(
+                  onTap: () {
+                    Get.toNamed(
+                      AppRoutes.quranReading,
+                      arguments: recentPage,
+                    );
+                  },
+                  leading: Image.asset(
+                    "assets/images/quran.png",
+                    height: 40,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    "Resume Reading",
+                    style: Get.textTheme.titleMedium?.copyWith(
+                      color: Colors.white,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.keyboard_arrow_right_rounded,
+                    size: 18,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            )
+          : null,
     );
   }
 

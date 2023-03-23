@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 
@@ -42,5 +43,32 @@ class LocalNotificationManger extends GetxService {
       body,
       platformChannelSpecifics,
     );
+  }
+
+  Future<void> showDownloading(int id, int progress) async {
+    var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+        'Quran downloading', 'Quran downloading',
+        channelDescription: 'Quran downloading',
+        channelShowBadge: false,
+        importance: Importance.max,
+        priority: Priority.high,
+        onlyAlertOnce: true,
+        showProgress: true,
+        progress: progress,
+        maxProgress: 100);
+    var platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+    );
+
+    localNotification.show(
+      id,
+      "Tafseer ul quran",
+      "16 Line Quran downloading",
+      platformChannelSpecifics,
+    );
+  }
+
+  Future<void> dismissNotification(int id) async {
+    await localNotification.cancel(id);
   }
 }

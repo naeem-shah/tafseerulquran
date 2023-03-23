@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:download_assets/download_assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:tafseer/app/assets/constants.dart';
+import 'package:tafseer/app/services/preferences.dart';
 import 'package:wakelock/wakelock.dart';
 
 class ReadingController extends GetxController {
@@ -42,5 +44,11 @@ class ReadingController extends GetxController {
     return List.generate(548, (index) {
       return File("${_assetsController.assetsDir}/${++index}.jpg");
     });
+  }
+
+  Future<bool> saveLastPage() async {
+    await Get.find<Preferences>()
+        .setInt(key: Constants.recentPage, value: pageNo.value);
+    return true;
   }
 }

@@ -48,6 +48,8 @@ class Constants {
   static const recentSurahId = "recent_surah_id";
   static const recentPosition = "recent_position";
 
+  static const recentPage = "recent_page";
+
   static const String auzubillah =
       "أَعـوذُ بِاللهِ مِنَ الشَّيْـطانِ الرَّجيـم";
   static const String bismillah = "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ";

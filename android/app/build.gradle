@@ -69,7 +69,7 @@ android {
     }
     buildTypes {
         release {
-//            shrinkResources true
+            shrinkResources true
 //            minifyEnabled true
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //            mappingFileUploadEnabled true
