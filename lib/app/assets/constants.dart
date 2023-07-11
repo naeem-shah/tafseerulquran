@@ -50,6 +50,8 @@ class Constants {
 
   static const recentPage = "recent_page";
 
+  static const String cryptoKey = "fMhBu#\$%be\$5ek!1ULXO6z*iB4Nv03E1";
+
   static const String auzubillah =
       "أَعـوذُ بِاللهِ مِنَ الشَّيْـطانِ الرَّجيـم";
   static const String bismillah = "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ";

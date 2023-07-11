@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:tafseer/app/assets/constants.dart';
+import 'package:tafseer/app/services/encryption_helper.dart';
 
 class AyatModel {
   int id;
@@ -45,7 +46,7 @@ class AyatModel {
       ayat: map[Constants.arabic],
       ayatClean: map[Constants.arabicClean],
       translation: map[Constants.translation],
-      tafsir: map[Constants.tafsir],
+      tafsir: EncryptionHelper.instance.decryption(EncryptionHelper.instance.encryption(map[Constants.tafsir] ?? "")),
       surahId: map[Constants.surahId],
       juzId: map[Constants.juzId],
       ayatNo: map[Constants.ayatNo],
