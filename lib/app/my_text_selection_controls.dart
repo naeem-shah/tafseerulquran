@@ -34,8 +34,8 @@ class MyTextSelectionControls extends TextSelectionControls {
         children: [
           TextButton.icon(
             onPressed: () {},
-            icon: Icon(Icons.copy),
-            label: Text('Copy'),
+            icon: const Icon(Icons.copy),
+            label: const Text('Copy'),
           ),
         ],
       ),

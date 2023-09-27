@@ -65,8 +65,8 @@ class SearchController extends GetxController {
         arguments.add(selectedSurah.value!.id);
       }
 
-      print(where);
-      print(arguments);
+      // print(where);
+      // print(arguments);
 
       final list = await Get.find<DatabaseManager>().search(
         where,

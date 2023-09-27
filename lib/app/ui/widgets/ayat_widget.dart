@@ -3,12 +3,9 @@ import 'package:flutter_parsed_text/flutter_parsed_text.dart';
 import 'package:get/get.dart';
 import 'package:tafseer/app/assets/custom_fonts.dart';
 import 'package:tafseer/app/controllers/ayat/ayat_controller.dart';
-import 'package:tafseer/app/controllers/index/index_controller.dart';
 import 'package:tafseer/app/controllers/settings_bottom_sheet_controller.dart';
 import 'package:tafseer/app/models/ayat_model.dart';
 import 'package:tafseer/app/ui/widgets/ayat_more_bottom_sheet.dart';
-
-import '../../routes/app_routes.dart';
 
 class AyatWidget extends StatelessWidget {
   final AyatModel ayatModel;

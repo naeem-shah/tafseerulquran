@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_parsed_text/flutter_parsed_text.dart';
 import 'package:get/get.dart';
-import 'package:tafseer/app/controllers/search/search_controller.dart';
+import 'package:tafseer/app/controllers/search/search_controller.dart' as c_search_controller;
 import 'package:tafseer/app/models/ayat_model.dart';
 
 import '../../assets/custom_fonts.dart';
@@ -16,7 +16,7 @@ class AyatSearchTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final searchController = Get.find<SearchController>();
+    final searchController = Get.find<c_search_controller.SearchController>();
     return Card(
       elevation: 2,
       margin: const EdgeInsets.fromLTRB(12, 0, 12, 8),

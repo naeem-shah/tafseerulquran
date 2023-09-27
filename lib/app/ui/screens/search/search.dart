@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tafseer/app/controllers/search/search_controller.dart';
+import 'package:tafseer/app/controllers/search/search_controller.dart' as c_search_controller;
 import 'package:tafseer/app/models/index_model.dart';
 import 'package:tafseer/app/ui/widgets/ayat_search_tile.dart';
 import 'package:tafseer/app/ui/widgets/bottom_sheet_closing_widget.dart';
@@ -13,7 +13,7 @@ class Search extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SearchController());
+    final controller = Get.put(c_search_controller.SearchController());
 
     return Scaffold(
       appBar: AppBar(

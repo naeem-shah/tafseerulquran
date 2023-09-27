@@ -14,7 +14,6 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../assets/custom_fonts.dart';
 import '../../controllers/index/index_data_controller.dart';
-import '../../services/local_notification_manager.dart';
 import 'app_drawer.dart';
 
 class HomePage extends StatelessWidget {

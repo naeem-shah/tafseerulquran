@@ -2,7 +2,6 @@ import 'package:download_assets/download_assets.dart';
 import 'package:get/get.dart';
 import 'package:tafseer/app/assets/constants.dart';
 import 'package:tafseer/app/routes/app_routes.dart';
-import 'package:tafseer/app/services/local_notification_manager.dart';
 import 'package:tafseer/app/services/preferences.dart';
 
 class QuranDownloadController extends GetxController {
@@ -19,11 +18,11 @@ class QuranDownloadController extends GetxController {
     try {
       await assetsController.clearAssets();
       await assetsController.startDownload(
-        assetsUrl: Constants.quranDownloadLink,
         onProgress: (progressValue) {
           progress.value = progressValue;
           // Get.find<LocalNotificationManger>().showDownloading(101, progressValue.toInt());
         },
+        assetsUrls: [Constants.quranDownloadLink],
       );
 
       Get.find<Preferences>().setBool(
@@ -36,7 +35,6 @@ class QuranDownloadController extends GetxController {
       // Get.find<LocalNotificationManger>().dismissNotification(101);
       Get.rawSnackbar(
         message: "Unable to download. try to reinstall app Error: $e",
-
       );
     }
   }
