@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomCurveWidget extends StatelessWidget {
-  const CustomCurveWidget({Key? key}) : super(key: key);
+  const CustomCurveWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ import 'package:tafseer/app/ui/widgets/bottom_sheet_closing_widget.dart';
 
 
 class AyatMoreBottomSheet extends StatelessWidget {
-  const AyatMoreBottomSheet({Key? key, required this.ayat}) : super(key: key);
+  const AyatMoreBottomSheet({super.key, required this.ayat});
 
   final AyatModel ayat;
 

@@ -11,14 +11,22 @@ import 'package:visibility_detector/visibility_detector.dart';
 import '../../widgets/ayah_slider.dart';
 
 class Ayat extends StatelessWidget {
-  const Ayat({Key? key}) : super(key: key);
+  const Ayat({super.key});
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(AyatController());
 
-    return WillPopScope(
-      onWillPop: controller.onPopScope,
+    return PopScope(
+      onPopInvokedWithResult: (didPop, results) async {
+        if (didPop) {
+          return;
+        }
+        await controller.onPopScope();
+
+        Get.back();
+      },
+      canPop: false,
       child: Obx(() {
         return Scaffold(
           appBar: AppBar(

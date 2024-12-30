@@ -6,7 +6,7 @@ import 'package:tafseer/app/models/ayat_model.dart';
 import '../../widgets/ayat_bookmark_widget.dart';
 
 class Bookmarks extends StatelessWidget {
-  const Bookmarks({Key? key}) : super(key: key);
+  const Bookmarks({super.key});
 
   @override
   Widget build(BuildContext context) {

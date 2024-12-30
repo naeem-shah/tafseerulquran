@@ -10,6 +10,7 @@ ThemeData get customAppTheme => ThemeData(
       ).copyWith(
         secondary: const Color(0xff3f6336),
       ),
+      scaffoldBackgroundColor: const Color(0xffF2F5F9),
     );
 
 MaterialColor generateMaterialColor(Color color) {

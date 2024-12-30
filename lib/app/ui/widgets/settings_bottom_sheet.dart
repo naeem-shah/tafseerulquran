@@ -7,7 +7,7 @@ import 'package:tafseer/app/ui/widgets/bottom_sheet_closing_widget.dart';
 import 'package:tafseer/app/ui/widgets/font_tile.dart';
 
 class SettingsBottomSheet extends StatelessWidget {
-  const SettingsBottomSheet({Key? key}) : super(key: key);
+  const SettingsBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {

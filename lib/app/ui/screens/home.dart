@@ -17,7 +17,7 @@ import '../../controllers/index/index_data_controller.dart';
 import 'app_drawer.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -143,44 +143,47 @@ class HomePage extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Obx(
-                        () {
-                          if (controller.dailyAyat.value != null) {
-                            return Card(
-                              margin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    SelectableText(
-                                      controller.dailyAyat.value!.ayat,
-                                      style:
-                                          Get.textTheme.headlineSmall?.copyWith(
-                                        fontFamily: AppFonts.nooreHuda,
+                      SizedBox(
+                        width: Get.width,
+                        child: Obx(
+                          () {
+                            if (controller.dailyAyat.value != null) {
+                              return Card(
+                                margin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      SelectableText(
+                                        controller.dailyAyat.value!.ayat,
+                                        style:
+                                            Get.textTheme.headlineSmall?.copyWith(
+                                          fontFamily: AppFonts.nooreHuda,
+                                        ),
+                                        textDirection: TextDirection.rtl,
+                                        textAlign: TextAlign.center,
                                       ),
-                                      textDirection: TextDirection.rtl,
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    const SizedBox(
-                                      height: 6,
-                                    ),
-                                    SelectableText(
-                                      "${controller.dailyAyat.value!.translation} [${Get.find<IndexDataController>()
-                                              .getIndex(controller
-                                                  .dailyAyat.value!.surahId)
-                                              .name}]",
-                                      style: Get.textTheme.titleLarge
-                                          ?.copyWith(fontFamily: AppFonts.urdu),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ],
+                                      const SizedBox(
+                                        height: 6,
+                                      ),
+                                      SelectableText(
+                                        "${controller.dailyAyat.value!.translation} [${Get.find<IndexDataController>()
+                                                .getIndex(controller
+                                                    .dailyAyat.value!.surahId)
+                                                .name}]",
+                                        style: Get.textTheme.titleLarge
+                                            ?.copyWith(fontFamily: AppFonts.urdu),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            );
-                          }
-                          return const SizedBox.shrink();
-                        },
+                              );
+                            }
+                            return const SizedBox.shrink();
+                          },
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -238,7 +241,7 @@ class HomePage extends StatelessWidget {
       bottomNavigationBar: BottomAppBar(
         child: Card(
           color: Get.theme.primaryColor,
-          margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+          margin: EdgeInsets.zero,
           child: ListTile(
             onTap: () {
               Get.toNamed(AppRoutes.quranHome);

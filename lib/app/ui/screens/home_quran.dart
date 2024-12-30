@@ -15,7 +15,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 import '../../assets/constants.dart';
 
 class HomeQuran extends StatelessWidget {
-  const HomeQuran({Key? key}) : super(key: key);
+  const HomeQuran({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -207,6 +207,7 @@ class HomeQuran extends StatelessWidget {
                       Get.defaultDialog(
                         title: 'Jump to Ayah',
                         content: const JumpToAyahDialog(),
+                        backgroundColor: Colors.white,
                         onConfirm: (){
                           Get.find<JumpToAyahController>().jump();
                         },

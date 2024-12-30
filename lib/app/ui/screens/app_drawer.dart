@@ -5,7 +5,7 @@ import 'package:tafseer/app/assets/constants.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class AppDrawer extends StatelessWidget {
-  const AppDrawer({Key? key}) : super(key: key);
+  const AppDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {

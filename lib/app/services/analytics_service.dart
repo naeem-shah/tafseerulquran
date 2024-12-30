@@ -30,7 +30,7 @@ class AnalyticsService extends GetxService {
   }
 
   Future logEvent(
-      {required String name, Map<String, Object?>? parameters}) async {
+      {required String name, Map<String, Object>? parameters}) async {
     _analytics.logEvent(name: name, parameters: parameters);
   }
 }

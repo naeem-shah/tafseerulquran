@@ -5,7 +5,7 @@ import 'package:tafseer/app/controllers/jump_to_ayah_controller.dart';
 import 'package:tafseer/app/models/index_model.dart';
 
 class JumpToAyahDialog extends StatelessWidget {
-  const JumpToAyahDialog({Key? key}) : super(key: key);
+  const JumpToAyahDialog({super.key});
 
   @override
   Widget build(BuildContext context) {

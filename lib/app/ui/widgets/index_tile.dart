@@ -6,10 +6,10 @@ import '../../assets/custom_fonts.dart';
 
 class IndexTile extends StatelessWidget {
   const IndexTile({
-    Key? key,
+    super.key,
     required this.indexModel,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final IndexModel indexModel;
   final VoidCallback? onTap;

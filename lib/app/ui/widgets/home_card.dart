@@ -6,7 +6,7 @@ class HomeCardWidget extends StatelessWidget {
   final IconData iconData;
   final VoidCallback? onTap;
 
-  const HomeCardWidget({Key? key,required this.title,required this.iconData, this.onTap}) : super(key: key);
+  const HomeCardWidget({super.key,required this.title,required this.iconData, this.onTap});
   @override
   Widget build(BuildContext context) {
     return InkWell(

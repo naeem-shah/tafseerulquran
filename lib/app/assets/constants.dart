@@ -4,7 +4,7 @@ class Constants {
 
   static const String db = "tafsir.db";
   /// do not decrease the value of [dbVersion]
-  static const int dbVersion = 2;
+  static const int dbVersion = 3;
   static const String ayatTable = "Ayat";
   static const String juzTable = "Juz";
   static const String surahTable = "Surah";
@@ -38,7 +38,7 @@ class Constants {
   static const String officialChannel = "https://www.youtube.com/c/HafizAbdusSalamBinMuhammadBhutvi";
   static const String tarjumaChannel = "https://www.youtube.com/channel/UCMYlS8dVFUH9t67h-NaBzXQ";
   static const String facebookPage = "https://www.facebook.com/BhutviOfficial";
-  static const String whatsappGroup = "https://chat.whatsapp.com/JfjDoVGONWc54itTrbFka1";
+  static const String whatsappGroup = "https://chat.whatsapp.com/E96PMZmLEcf2RZkyKzquSk";
   static const String soundCloud = "https://soundcloud.com/al-quran-ul-kareem";
   static const String twitterOfficial = "https://twitter.com/BhutviOfficial";
   static const String twitterTarjuma = "https://twitter.com/AlQuranulKarem";

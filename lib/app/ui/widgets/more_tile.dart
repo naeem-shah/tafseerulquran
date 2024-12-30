@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 
 class MoreTile extends StatelessWidget {
   const MoreTile({
-    Key? key,
+    super.key,
     required this.title,
     required this.icon,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final String title;
   final IconData icon;

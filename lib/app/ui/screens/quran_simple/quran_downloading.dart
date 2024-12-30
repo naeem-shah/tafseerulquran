@@ -4,7 +4,7 @@ import 'package:tafseer/app/assets/constants.dart';
 import 'package:tafseer/app/controllers/reading/quran_download_controller.dart';
 
 class QuranDownloading extends StatelessWidget {
-  QuranDownloading({Key? key}) : super(key: key);
+  QuranDownloading({super.key});
   final controller =
       Get.find<QuranDownloadController>(tag: Constants.hasDownloaded);
 

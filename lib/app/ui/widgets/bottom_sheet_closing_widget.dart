@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BottomSheetClosingWidget extends StatelessWidget {
-  const BottomSheetClosingWidget({Key? key, this.title}) : super(key: key);
+  const BottomSheetClosingWidget({super.key, this.title});
   final String? title;
 
   @override

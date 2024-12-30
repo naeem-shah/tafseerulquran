@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:tafseer/app/controllers/ayat/ayat_controller.dart';
 
 class AyahSlider extends StatelessWidget implements PreferredSizeWidget {
-  const AyahSlider({Key? key}) : super(key: key);
+  const AyahSlider({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +33,7 @@ class AyahSlider extends StatelessWidget implements PreferredSizeWidget {
                   },
                   min: 1,
                   max: controller.sliderLength,
+                  inactiveColor: Get.theme.primaryColorLight,
                 ),
               ),
               Text(

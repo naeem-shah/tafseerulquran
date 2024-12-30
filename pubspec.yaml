@@ -1,23 +1,23 @@
 name: tafseer
 description: Hafiz Abdul Salam tafseer
 
-version: 1.1.3+10
+version: 1.1.4+15
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=3.5.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
-  screenshot: ^2.1.0
+  screenshot: ^3.0.0
   image_gallery_saver: ^2.0.3
   auto_size_text: ^3.0.0
-  flutter_lints: ^2.0.1
+  flutter_lints: ^5.0.0
   shared_preferences: ^2.0.13
   cupertino_icons: ^1.0.4
   fluttertoast: ^8.0.9
-  intl: ^0.18.0
+  intl: ^0.19.0
   path_provider: ^2.0.9
   sqflite: ^2.0.2
   get: ^4.6.1
@@ -31,13 +31,13 @@ dependencies:
   download_assets: ^3.0.0
   font_awesome_flutter: ^10.1.0
   url_launcher: ^6.0.20
-  flutter_local_notifications: ^15.1.1
+  flutter_local_notifications: ^18.0.1
   flutter_native_splash: ^2.1.6
   upgrader: ^6.0.1
-  firebase_core: ^2.5.0
-  firebase_messaging: ^14.2.2
-  firebase_crashlytics: ^3.0.12
-  firebase_analytics: ^10.1.5
+  firebase_core: ^3.2.0
+  firebase_messaging: ^15.0.3
+  firebase_crashlytics: ^4.0.3
+  firebase_analytics: ^11.2.0
   path: ^1.8.2
   encrypt: ^5.0.1
 
@@ -46,6 +46,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+dependency_overrides:
+  win32: ^5.5.4
 
 flutter:
   uses-material-design: true

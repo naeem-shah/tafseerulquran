@@ -5,7 +5,7 @@ import 'package:tafseer/app/models/index_model.dart';
 import 'package:tafseer/app/ui/widgets/index_tile.dart';
 
 class QuranIndex extends StatelessWidget {
-  const QuranIndex({Key? key}) : super(key: key);
+  const QuranIndex({super.key});
 
   @override
   Widget build(BuildContext context) {

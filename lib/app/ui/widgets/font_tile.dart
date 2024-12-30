@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class FontTile extends StatelessWidget {
   const FontTile({
-    Key? key,
+    super.key,
     required this.title,
     required this.onChange,
     required this.value,
-  }) : super(key: key);
+  });
 
   final String title;
   final int value;

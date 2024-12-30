@@ -5,14 +5,22 @@ import 'package:get/get.dart';
 import 'package:tafseer/app/controllers/reading/reading_controller.dart';
 
 class QuranReading extends StatelessWidget {
-  const QuranReading({Key? key}) : super(key: key);
+  const QuranReading({super.key});
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ReadingController());
 
-    return WillPopScope(
-      onWillPop: controller.saveLastPage,
+    return PopScope(
+      onPopInvokedWithResult: (didPop, results) async {
+        if (didPop) {
+          return;
+        }
+        await controller.saveLastPage();
+
+        Get.back();
+      },
+      canPop: false,
       child: Scaffold(
         appBar: AppBar(
           title: Image.asset(

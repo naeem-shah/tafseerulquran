@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:tafseer/app/ui/widgets/bg_frame.dart';
 
 class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+  const Login({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:tafseer/app/enums.dart';
 import 'package:tafseer/app/ui/widgets/bottom_sheet_closing_widget.dart';
 
 class ShareTextBottomSheet extends StatelessWidget {
-  const ShareTextBottomSheet({Key? key}) : super(key: key);
+  const ShareTextBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {

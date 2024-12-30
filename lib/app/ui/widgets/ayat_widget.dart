@@ -11,9 +11,9 @@ class AyatWidget extends StatelessWidget {
   final AyatModel ayatModel;
 
   const AyatWidget({
-    Key? key,
+    super.key,
     required this.ayatModel,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +21,7 @@ class AyatWidget extends StatelessWidget {
     final ayatController = Get.find<AyatController>();
     return Card(
       elevation: 2,
+      color: Colors.white,
       margin: const EdgeInsets.fromLTRB(12, 0, 12, 8),
       child: Column(
         children: [

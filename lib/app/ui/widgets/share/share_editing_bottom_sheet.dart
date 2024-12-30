@@ -8,11 +8,11 @@ class ShareEditingBottomSheet extends StatelessWidget {
   final bool isExplanation;
 
   ShareEditingBottomSheet({
-    Key? key,
+    super.key,
     this.isQuran = false,
     this.isTranslation = false,
     this.isExplanation = false,
-  }) : super(key: key);
+  });
 
   final controller = Get.find<ShareEditingController>();
 

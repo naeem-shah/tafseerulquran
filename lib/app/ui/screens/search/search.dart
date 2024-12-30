@@ -9,7 +9,7 @@ import 'package:tafseer/app/ui/widgets/index_tile.dart';
 import '../../../models/ayat_model.dart';
 
 class Search extends StatelessWidget {
-  const Search({Key? key}) : super(key: key);
+  const Search({super.key});
 
   @override
   Widget build(BuildContext context) {

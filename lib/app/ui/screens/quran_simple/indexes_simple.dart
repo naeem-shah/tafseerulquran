@@ -9,7 +9,7 @@ import '../../../models/index_model.dart';
 import '../../widgets/index_tile.dart';
 
 class IndexesSimple extends StatelessWidget {
-  const IndexesSimple({Key? key}) : super(key: key);
+  const IndexesSimple({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tafseer/app/ui/widgets/settings_bottom_sheet.dart';
 
 class Settings extends StatelessWidget {
-  const Settings({Key? key}) : super(key: key);
+  const Settings({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -12,9 +12,9 @@ class AyatBookmarkTile extends StatelessWidget {
   final AyatModel ayatModel;
 
   const AyatBookmarkTile({
-    Key? key,
+    super.key,
     required this.ayatModel,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

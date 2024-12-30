@@ -11,8 +11,7 @@ class AyatSearchTile extends StatelessWidget {
   final AyatModel ayatModel;
   final String query;
 
-  const AyatSearchTile({Key? key, required this.ayatModel, this.query = ""})
-      : super(key: key);
+  const AyatSearchTile({super.key, required this.ayatModel, this.query = ""});
 
   @override
   Widget build(BuildContext context) {

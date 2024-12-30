@@ -4,7 +4,7 @@ import 'package:tafseer/app/controllers/splash_controller.dart';
 import 'package:tafseer/app/ui/widgets/bg_frame.dart';
 
 class Splash extends StatelessWidget {
-  const Splash({Key? key}) : super(key: key);
+  const Splash({super.key});
 
   @override
   Widget build(BuildContext context) {

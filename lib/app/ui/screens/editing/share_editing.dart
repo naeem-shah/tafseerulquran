@@ -6,7 +6,7 @@ import 'package:tafseer/app/controllers/share_editing_controller.dart';
 import 'package:tafseer/app/ui/widgets/share/share_editing_bottom_sheet.dart';
 
 class ShareEditing extends StatelessWidget {
-  const ShareEditing({Key? key}) : super(key: key);
+  const ShareEditing({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +22,16 @@ class ShareEditing extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            style: TextButton.styleFrom(
-              foregroundColor: Colors.white,
-            ),
+            // style: TextButton.styleFrom(
+            //   foregroundColor: Colors.white,
+            // ),
             onPressed: controller.onSave,
             child: const Text("SAVE"),
           ),
           TextButton(
-            style: TextButton.styleFrom(
-              foregroundColor: Colors.white,
-            ),
+            // style: TextButton.styleFrom(
+            //   foregroundColor: Colors.white,
+            // ),
             onPressed: controller.onShare,
             child: const Text("SHARE"),
           ),

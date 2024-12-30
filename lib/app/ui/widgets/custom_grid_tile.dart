@@ -3,12 +3,12 @@ import 'package:get/get.dart';
 
 class CustomGridTile extends StatelessWidget {
   const CustomGridTile({
-    Key? key,
+    super.key,
     required this.imagePath,
     required this.title,
     this.onTap,
     this.size = 60,
-  }) : super(key: key);
+  });
 
   final String imagePath;
   final String title;
