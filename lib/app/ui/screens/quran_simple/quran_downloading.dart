@@ -5,6 +5,7 @@ import 'package:tafseer/app/controllers/reading/quran_download_controller.dart';
 
 class QuranDownloading extends StatelessWidget {
   QuranDownloading({super.key});
+
   final controller =
       Get.find<QuranDownloadController>(tag: Constants.hasDownloaded);
 
@@ -13,6 +14,7 @@ class QuranDownloading extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Downloading"),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
       body: Center(
         child: Obx(
@@ -38,7 +40,7 @@ class QuranDownloading extends StatelessWidget {
                           children: [
                             const Text("Please Wait..."),
                             Text(
-                              "${(controller.progress.value!).toStringAsFixed(2)} %",
+                              "${(controller.progress.value! * 100).toStringAsFixed(2)} %",
                             ),
                           ],
                         ),
@@ -46,8 +48,10 @@ class QuranDownloading extends StatelessWidget {
                           height: 4,
                         ),
                         LinearProgressIndicator(
-                          value: controller.progress.value! / 100,
+                          value: controller.progress.value!,
                           minHeight: 15,
+                          backgroundColor: Theme.of(context).primaryColor.withOpacity(0.3),
+                          valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),
                         ),
                       ],
                     )

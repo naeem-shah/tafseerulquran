@@ -4,7 +4,7 @@ class Constants {
 
   static const String db = "tafsir.db";
   /// do not decrease the value of [dbVersion]
-  static const int dbVersion = 3;
+  static const int dbVersion = 5;
   static const String ayatTable = "Ayat";
   static const String juzTable = "Juz";
   static const String surahTable = "Surah";

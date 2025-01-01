@@ -17,7 +17,6 @@ class QuranIndex extends StatelessWidget {
           controller.isSurah
               ? "assets/images/surah.png"
               : "assets/images/juz.png",
-          color: Colors.white,
           height: 40,
         ),
         centerTitle: true,

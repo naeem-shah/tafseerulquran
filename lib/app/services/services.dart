@@ -47,6 +47,10 @@ class Services {
       IndexDataController(),
       permanent: true,
     );
+    await Get.find<Preferences>().setBool(
+      key: Constants.hasDownloaded,
+      value: false,
+    );
     final bool hasDownloaded = Get.find<Preferences>().getBool(
           key: Constants.hasDownloaded,
         ) ??

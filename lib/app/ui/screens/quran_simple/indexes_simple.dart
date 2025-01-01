@@ -45,7 +45,7 @@ class IndexesSimple extends StatelessWidget {
           ? BottomAppBar(
               child: Card(
                 color: Get.theme.primaryColor,
-                margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+                margin: EdgeInsets.zero,
                 child: ListTile(
                   onTap: () {
                     Get.toNamed(

@@ -62,6 +62,7 @@ class HomeQuran extends StatelessWidget {
             width: 12,
           ),
         ],
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.grey.shade200,
@@ -96,8 +97,7 @@ class HomeQuran extends StatelessWidget {
                           textDirection: TextDirection.ltr,
                           child: ListTile(
                             title: Text(
-                              "${controller.hijri.hDay} ${controller.hijri
-                                  .longMonthName}",
+                              "${controller.hijri.hDay} ${controller.hijri.longMonthName}",
                               style: Get.textTheme.headlineSmall?.copyWith(
                                 color: Colors.white,
                               ),
@@ -205,15 +205,14 @@ class HomeQuran extends StatelessWidget {
                     size: 40,
                     onTap: () {
                       Get.defaultDialog(
-                        title: 'Jump to Ayah',
-                        content: const JumpToAyahDialog(),
-                        backgroundColor: Colors.white,
-                        onConfirm: (){
-                          Get.find<JumpToAyahController>().jump();
-                        },
-                        textConfirm: "Go",
-                        textCancel: "Cancel"
-                      );
+                          title: 'Jump to Ayah',
+                          content: const JumpToAyahDialog(),
+                          backgroundColor: Colors.white,
+                          onConfirm: () {
+                            Get.find<JumpToAyahController>().jump();
+                          },
+                          textConfirm: "Go",
+                          textCancel: "Cancel");
                     },
                   ),
                   CustomGridTile(
@@ -237,12 +236,12 @@ class HomeQuran extends StatelessWidget {
 
   void onResume() {
     int position = Get.find<Preferences>().getInt(
-      key: Constants.recentPosition,
-    ) ??
+          key: Constants.recentPosition,
+        ) ??
         0;
     int surahId = Get.find<Preferences>().getInt(
-      key: Constants.recentSurahId,
-    ) ??
+          key: Constants.recentSurahId,
+        ) ??
         1;
 
     Get.toNamed(

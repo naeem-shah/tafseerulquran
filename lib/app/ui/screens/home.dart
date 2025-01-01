@@ -36,6 +36,9 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.white
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(
