@@ -44,7 +44,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.naeem.tafseerulquran"
+        applicationId "com.naeem.apps.tafseerulquran"
         minSdkVersion 21
         targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()

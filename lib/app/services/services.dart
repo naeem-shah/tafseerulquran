@@ -23,6 +23,7 @@ class Services {
 
   Future<void> initServices() async {
     await Firebase.initializeApp(
+      name: "tafseer (android)",
       options: DefaultFirebaseOptions.currentPlatform,
     );
 

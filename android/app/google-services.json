@@ -2,9 +2,45 @@
   "project_info": {
     "project_number": "907830660555",
     "project_id": "tafseer-ul-quran",
-    "storage_bucket": "tafseer-ul-quran.appspot.com"
+    "storage_bucket": "tafseer-ul-quran.firebasestorage.app"
   },
   "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907830660555:android:327a29a33d99959689ba4e",
+        "android_client_info": {
+          "package_name": "com.naeem.apps.tafseerulquran"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907830660555-t8skana39nlije31hjvkv0pu3jnoumml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbpb7LtNB9gBWyuZKSO4O-XNpvtRJbdRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907830660555-t8skana39nlije31hjvkv0pu3jnoumml.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "907830660555-s3ek9dea90srfr853bobjrrkaiomcnko.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.naeem.tafseerulquran"
+              }
+            }
+          ]
+        }
+      }
+    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:907830660555:android:994c644df357ccf689ba4e",
@@ -13,6 +49,22 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "907830660555-m3vgn5bjidi8vtrsnr11c7957bdls55c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.naeem.tafseerulquran",
+            "certificate_hash": "6646b060a98066505b3e5e82461a890fdec71d00"
+          }
+        },
+        {
+          "client_id": "907830660555-oet7670ed8kh6bhcvqqfstke3hm4f52a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.naeem.tafseerulquran",
+            "certificate_hash": "2d5145e01b329935fbcd75816614707987bb6f6c"
+          }
+        },
         {
           "client_id": "907830660555-t8skana39nlije31hjvkv0pu3jnoumml.apps.googleusercontent.com",
           "client_type": 3
